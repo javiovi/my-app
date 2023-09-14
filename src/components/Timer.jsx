@@ -16,10 +16,11 @@ const styles = StyleSheet.create({
         backgroundColor:"#F2F2F2",
         padding: 15,
         borderRadius: 15,
+        paddingBottom: 50,
+        paddingTop:50,
     },
     time:  {
         fontSize: 80,
-        fontWeight: "bold",
         textAlign: "center",
        
     }

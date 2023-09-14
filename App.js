@@ -5,7 +5,7 @@ import Header from './src/components/Header';
 import Timer  from './src/components/Timer';
 import { Audio } from "expo-av";
 
-const colors = ["#b7aea5","#f77014","#e33c08"]
+const colors = ["#fbffdd","#e1f7c4","#c8eeac"]
 
 
 export default function App() {
@@ -14,6 +14,7 @@ export default function App() {
   const [time, setTime] = useState(25 * 60);
   const [currentTime, setCurrentTime] = useState("GO" | "SHORT" | "BREAK");
   const [isActive, setIsActive] = useState(false);
+  const [buttonColor, setButtonColor] = useState("#94dd7a");
 
   useEffect( () => {
     let interval = null;
@@ -38,6 +39,7 @@ export default function App() {
   function handleStartStop (){ 
     playSound();
     setIsActive(!isActive);
+    setButtonColor(isActive ? "#94dd7a" : "red");
 }
 
 async function playSound(){
@@ -62,8 +64,8 @@ async function playSound(){
    setCurrentTime={setCurrentTime}
     setTime={setTime}/>
     <Timer time={time}/>
-    <TouchableOpacity onPress={handleStartStop} style={styles.button}>
-      <Text style={{color: "white", fontWeight: "bold "}}>
+    <TouchableOpacity onPress={handleStartStop} style={[styles.button, { backgroundColor: buttonColor} ]}>
+      <Text style={{color:"white", fontWeight: "bold"}}>
       {isActive ? "STOP" : "START"} </Text>
     </TouchableOpacity>
   </View>
@@ -71,17 +73,37 @@ async function playSound(){
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
   container: {
     flex: 1,
-     },
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 50,
+    paddingHorizontal: 20,
+    
+   
+  },
   text: {
-    fontSize: 32, fontWeight: "bold"},
-    button: {
-      alignItems: "center",
-      backgroundColor: "#333333",
-      padding: 15,
-      marginTop: 15,
-      borderRadius: 15,
-    }
-});
+    textAlign: 'center',
+    fontSize: 36, 
+    fontWeight: 'bold',
+    color: '#333333', 
+    marginBottom: 20, 
+    paddingBottom: 20,
+  },
+  button: {
+    alignItems: 'center', 
+    paddingVertical: 15, 
+    paddingHorizontal: 30,
+    borderRadius: 25, 
+    elevation: 3, 
+    paddingBottom: 20,
+   
+    marginTop: 50,
+  },
+  buttonText: {
+    color: 'white', 
+    fontSize: 18, 
+    fontWeight: 'bold'
+  }
+})

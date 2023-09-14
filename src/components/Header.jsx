@@ -1,11 +1,11 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
 
 
-const options = [ "Go","Short Break", "Long Break"];
+const options = [ "Go!","Short Break", "Long Break"];
 export default function Header({currentTime, setCurrentTime, setTime }) {
     
     function handPress(index){
-        const newTime = index === 0 ? 25 : index === 1 ? 5 : 15;
+        const newTime = index === 0 ? 5 : index === 1 ? 1 : 10;
         setCurrentTime(index);
         setTime(newTime * 60);
     }
@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         padding: 5,
         borderRadius: 10,
-        borderColor: "white",
-        marginVertical: 20,
-    }
-})
+        borderColor: "grey",
+        marginVertical: 30,
+    },
+  
+});
