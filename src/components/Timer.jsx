@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         backgroundColor:"#F2F2F2",
         padding: 15,
         borderRadius: 15,
-        paddingBottom: 50,
+        paddingBottom: 30,
         paddingTop:50,
     },
     time:  {

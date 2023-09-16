@@ -11,7 +11,7 @@ const colors = ["#fbffdd","#e1f7c4","#c8eeac"]
 export default function App() {
 
   const [IsWorking, setIsWorking] = useState(false);
-  const [time, setTime] = useState(25 * 60);
+  const [time, setTime] = useState(5 * 60);
   const [currentTime, setCurrentTime] = useState("GO" | "SHORT" | "BREAK");
   const [isActive, setIsActive] = useState(false);
   const [buttonColor, setButtonColor] = useState("#94dd7a");
